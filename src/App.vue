@@ -11,6 +11,10 @@
   // As a heading
   .ball
 
+
+  .rect1
+    .rect2
+      .rect3
   nav.navbar.navbar-light.bg-dark
     span.navbar-brand.mb-0.h1 這是一條bootstrap的導覽列
     router-link(to="/HelloWorld") HelloWorld
@@ -55,7 +59,26 @@ export default {
 <style lang="sass">
 @import "~bootstrap/scss/bootstrap"
 #app
-  @keyframes aniBall
+  // .rect1
+  //   position: absolute
+  //   top: -31px
+  //   margin-left: 25px
+  //   border: 1px solid black
+  //   // background-color: green
+  //   width: 200px
+  //   height: 175px
+  //   transform: rotate(60deg)
+  //   // overflow: hidden
+  //   .rect2
+  //     border: 1px solid red
+  //     // background-color: white
+  //     top: 0px
+  //     width: 121px
+  //     height: 175px
+  //     margin-left: 100px
+  //     // transform: rotate(60deg)
+      
+  @keyframes ani
     0%
       left: 0
       background-color: #35495E
@@ -78,7 +101,7 @@ export default {
     top: 100px
     margin-left: 0px
     
-    animation-name: aniBall
+    animation-name: ani
     // 播放時間
     animation-duration: 3s
     //網頁進來後2秒開始
