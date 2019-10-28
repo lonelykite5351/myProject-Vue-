@@ -1,5 +1,15 @@
 <template lang="pug">
 .resumeBody
+    .littleMon
+        .monster.Yellow
+            .eye
+                .eyeball
+            .mouth
+        .monster.Blue
+            .eye
+                .eyeball
+            .mouth
+
     .resume
         //- h1 resume
         .left
@@ -447,6 +457,90 @@ export default {
                     &.bar100
                         width: 100%
 
+
+
+
+    $colorBackground: #2a69a8
+    $colorBlue: #0C4475
+    $colorYellow: #c9d639
+    $colorRed: #ef21b1
+
+    @mixin size($w,$h:$w)
+        width: $w
+        height: $h
+    @mixin flexCenter
+        display: flex
+        justify-content: center
+        align-items: center
+
+    .littleMon
+        position: relative
+        top: -200px
+        .monster
+            position: absolute
+            +size(110px)
+            background-color: $colorYellow
+            border-radius: 20px
+            +flexCenter
+            flex-direction: column
+            cursor: pointer
+            margin: 10px
+            box-shadow: 0px 10px 20px rgba(black,0.5)
+
+            &.Blue
+                background-color: #0C4475
+                .mouth,.eye .eyeball
+                    background-color: $colorRed
+            &.Yellow
+                left: 50%
+
+            // 兩串眉毛
+            &:before,&:after
+                content: ""
+                display: block
+                +size(20%, 10px)
+                background-color: orange
+                position: absolute
+                left: 50%
+                top: -10px
+                border-radius: 10px
+            &:before
+                transform: translateX(-70%) rotate(45deg)
+            &:after
+                transform: translateX(-30%) rotate(-45deg)
+
+            @keyframes eyemove
+                0%,10%
+                    transform: translate(50%)
+                90%,100%
+                    transform: translate(-50%)
+                
+            .eye
+                +size(40%)
+                border-radius: 50%
+                background-color: #fff
+                +flexCenter
+                .eyeball
+                    +size(50%)
+                    border-radius: 50%
+                    background-color: $colorBlue
+                    animation: eyemove 0.8s infinite alternate
+            
+            .mouth
+                +size(32%,12px)
+                background-color: white
+                border-radius: 12px
+                margin-top: 15%
+
+            @keyframes jumping
+                50%
+                    top: 0
+                    box-shadow: 0px 10px 20px rgba(black,0.8)
+                100%
+                    top: -80px
+                    box-shadow: 0px 120px 50px rgba(black,0.2)
+            
+            animation: jumping 0.8s infinite alternate
 
 
 

@@ -9,13 +9,8 @@
   //- nav.navbar.navbar-light.bg-light
   //-   a.navbar-brand(href='#') Navbar
   // As a heading
-
   .ball
 
-
-  .rect1
-    .rect2
-      .rect3
   nav.navbar.navbar-light.bg-dark
     span.navbar-brand.mb-0.h1 這是一條bootstrap的導覽列
     router-link(to="/HelloWorld") HelloWorld
@@ -44,7 +39,6 @@ export default {
   components: {
     HelloWorld , memoryFlop
   },
-
   data(){
     return {
       menuList: [
@@ -60,31 +54,8 @@ export default {
 
 <style lang="sass">
 @import "~bootstrap/scss/bootstrap"
-
 #app
-  // .rect1
-  //   position: absolute
-  //   top: -31px
-  //   margin-left: 25px
-  //   border: 1px solid black
-  //   // background-color: green
-  //   width: 200px
-  //   height: 175px
-  //   transform: rotate(60deg)
-  //   // overflow: hidden
-
-  //   .rect2
-  //     border: 1px solid red
-  //     // background-color: white
-  //     top: 0px
-  //     width: 121px
-  //     height: 175px
-  //     margin-left: 100px
-  //     // transform: rotate(60deg)
-      
-
-
-  @keyframes ani
+  @keyframes aniBall
     0%
       left: 0
       background-color: #35495E
@@ -99,7 +70,6 @@ export default {
       left: calc(100% - 100px)
       background-color: #41B883
       top: 100px
-
   .ball
     // border: 3px solid black
     width: 100px
@@ -108,7 +78,7 @@ export default {
     top: 100px
     margin-left: 0px
     
-    animation-name: ani
+    animation-name: aniBall
     // 播放時間
     animation-duration: 3s
     //網頁進來後2秒開始
@@ -126,11 +96,8 @@ export default {
       transform: rotate(45deg)
       cursor: pointer
   
-
-
   span
     color: white
-
   .leftMenu
     border-right: 2px solid rgba(0,0,0,0.5)
     position: absolute
@@ -142,7 +109,6 @@ export default {
     ul
       list-style: none
       padding-left: 10px
-
       li
         color: #11683a
         cursor: pointer
@@ -157,17 +123,13 @@ export default {
         background-color: #bbb
         transition: 0.3s
         border-radius: 10px
-
         &:hover
           border-radius: 30px
           transform: translateY(-5px)
-
 // enter進頁面整個過程，與leave頁面的整個過程
 .page-enter-active, .page-leave-active
   transition: 0.3s
-
 // enter前，leave後
 .page-enter, .page-leave-to
   opacity: 0
-
 </style>
