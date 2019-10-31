@@ -9,6 +9,7 @@ app.use(
   '/api',
   proxy({ target: '後端提供api的路由位置', changeOrigin: true })
 );
-var port = process.env.PORT || 5000;
+// var port = process.env.PORT || 5000;
+var port = process.env.PORT
 app.listen(port);
 console.log('server started '+ port);

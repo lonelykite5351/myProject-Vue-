@@ -11,6 +11,8 @@ import 'bootstrap/js/dist/alert'
 Vue.use(Router)
 
 export default new Router({
+  mode: "history",
+  base: "/hot/",
   routes: [
     {
       path: '/HelloWorld',
