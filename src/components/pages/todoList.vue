@@ -5,6 +5,7 @@
         v-on:keydown.enter="addTodo(newTodo)" 
         placeholder="請輸入項目")
   button(v-on:click="addTodo(newTodo)") 加入
+  button(v-on:click="postInAPI(newTodo)") POST進Web API
   br
   span.inputting 正在輸入...{{newTodo}}
   
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data() {
         return {
@@ -26,28 +29,57 @@ export default {
                 {content:"刷牙",complete: false},
                 {content:"睡覺",complete: false}
             ],
-            newTodo: null
+            newTodo: null,
+            apiUrl : "https://localhost:5001/api/TodoItems"
         }
+    },
+
+    created(){
+        axios.get(this.apiUrl)
+        .then(res=>{
+            console.log(res.data[0])
+            let dataObj = res.data
+            console.log(res.data)
+            for(let index in dataObj)
+                this.todos.push({content: dataObj[index].name, complete: dataObj[index].isComplete})
+            
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     },
     
     methods: {
         addTodo: function(todo){
-        if(this.newTodo == null){
-            alert("待辦事項不可為空白")
-        }else{
-            this.todos.push({content:todo,complete: false})
-            this.newTodo = null
-        }
+            if(this.newTodo == null){
+                alert("待辦事項不可為空白")
+            }else{
+                this.todos.push({content:todo,complete: false})
+                this.newTodo = null
+            }
         },
+
         removeTodo: function(){
         let ObjTodos = this.todos
-        for(var i=0;i<ObjTodos.length;i++){
-                if(ObjTodos[i].complete == true){
-                ObjTodos.splice(i,1)
-                i--
+            for(var i=0;i<ObjTodos.length;i++){
+                    if(ObjTodos[i].complete == true){
+                    ObjTodos.splice(i,1)
+                    i--
+                }
             }
-        }
         console.log(ObjTodos)
+        },
+
+        postInAPI: function(todo){
+            axios.post(this.apiUrl,{
+                name: todo,
+                iscomplete: true
+            })
+            .then((res)=>{})
+            .catch((error)=>{
+                console.log(error)
+            })
+            this.newTodo = null
         }
     }
 }
