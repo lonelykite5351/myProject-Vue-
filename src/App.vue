@@ -45,10 +45,11 @@ export default {
   },
   data(){
     return {
+      //左邊欄位清單
       menuList: [
         {id:1, idName:'resume', name:'個人履歷'},
         {id:2, idName:'memoryFlop', name:'記憶翻牌'},
-        // {id:3, idName:'list3', name:'list3'},
+        {id:3, idName:'todoList', name:'待辦事項'},
         // {id:4, idName:'list4', name:'list4'},
       ]
     }
@@ -125,6 +126,7 @@ export default {
     border-right: 2px solid rgba(0,0,0,0.5)
     position: absolute
     width: 200px
+    height: 100%
     margin-left: 20px
     margin-top: 15px
     padding-top: 10px
@@ -148,7 +150,7 @@ export default {
         border-radius: 10px
         &:hover
           border-radius: 30px
-          transform: translateY(-5px)
+          transform: translateY(-3px)
 // enter進頁面整個過程，與leave頁面的整個過程
 .page-enter-active, .page-leave-active
   transition: 0.3s
