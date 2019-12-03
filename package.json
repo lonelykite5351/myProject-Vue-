@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "api.js": "0.0.5",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "express": "^4.17.1",

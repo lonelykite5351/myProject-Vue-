@@ -20,6 +20,7 @@
     router-link(to="/HelloWorld") HelloWorld
     a(href="http://www.google.com.tw", target="_blank") Google
 
+  //- 左邊選單欄
   .leftMenu
     ul
       li(v-for="(menu,mid) in menuList")
