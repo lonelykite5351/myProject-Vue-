@@ -7,7 +7,7 @@
 
 ### 連接自建WebAPI(ASP.NET)
 ### 以axios實作get、post、delete
-### 請搭配Repositories<TodoApi>並開啟偵錯連接
+### 請搭配TodoApi的Repositories並開啟偵錯連接
 
 > A Vue.js project
 
